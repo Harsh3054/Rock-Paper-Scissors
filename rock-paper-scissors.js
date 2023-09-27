@@ -15,19 +15,23 @@ if(!score){
 };*/
 let isAutoPlaying=false;
 let intervalId;
+document.querySelector('.js-autoplay-button').addEventListener('click',()=>{
+    autoPlay();
+})
 function autoPlay(){
     if(!isAutoPlaying){
-            intervalId=setInterval(()=>{
-            const playerMove=pickComputerMove();
-            playGame(playerMove);
-        },1000);
-        isAutoPlaying=true;
+        intervalId=setInterval(()=>{
+        const playerMove=pickComputerMove();
+        playGame(playerMove);
+    },1000);
+    isAutoPlaying=true;
+    document.querySelector('.js-autoplay-button').innerHTML='Stop Playing';
     }else{
-        clearInterval(intervalId);
-        isAutoPlaying=false;
+    clearInterval(intervalId);
+    isAutoPlaying=false;
+    document.querySelector('.js-autoplay-button').innerHTML='Auto Play';
     }
 }
-
 document.querySelector('.js-rock-button').addEventListener('click',()=>{
     playGame('Rock');
 })
