@@ -43,6 +43,11 @@ document.querySelector('.js-paper-button').addEventListener('click',()=>{
 document.querySelector('.js-scissors-button').addEventListener('click',()=>{
     playGame('Scissors');
 })
+document.querySelector('.js-reset-button').addEventListener('click',()=>{
+    score.ties=0;score.loss=0;score.wins=0;
+    localStorage.removeItem('score');
+    scoreUpdate();
+})
 
 document.body.addEventListener('keydown',(event)=>{
     if(event.key==='r'){
