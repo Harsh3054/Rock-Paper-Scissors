@@ -44,9 +44,7 @@ document.querySelector('.js-scissors-button').addEventListener('click',()=>{
     playGame('Scissors');
 })
 document.querySelector('.js-reset-button').addEventListener('click',()=>{
-    score.ties=0;score.loss=0;score.wins=0;
-    localStorage.removeItem('score');
-    scoreUpdate();
+   resetScore();
 })
 
 document.body.addEventListener('keydown',(event)=>{
@@ -60,6 +58,12 @@ document.body.addEventListener('keydown',(event)=>{
         autoPlay();
     }
 });
+
+function resetScore(){
+    score.ties=0;score.loss=0;score.wins=0;
+    localStorage.removeItem('score');
+    scoreUpdate();
+}
 
 function playGame(userMove){
     const computerMove=pickComputerMove();
